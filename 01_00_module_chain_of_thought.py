@@ -6,10 +6,11 @@ load_dotenv()
 
 def main():
     OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
-    lm = dspy.LM("openai/gpt-4o-mini", api_key=OPENAI_API_KEY)
+    lm = dspy.LM("openai/gpt-4o-mini", api_key=OPENAI_API_KEY, cache=False)
     dspy.configure(lm=lm)
     math = dspy.ChainOfThought("question -> answer: float")
     print(math(question="2つのサイコロを振った時，2つの出目の合計が2になる確率は？"))
+    dspy.inspect_history(n=1)
 
 if __name__ == "__main__":
     main()
