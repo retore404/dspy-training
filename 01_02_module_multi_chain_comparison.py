@@ -1,6 +1,12 @@
 from dotenv import load_dotenv
 import dspy
 import os
+from langfuse import get_client
+from openinference.instrumentation.dspy import DSPyInstrumentor
+
+# Observe with Langfuse
+langfuse = get_client()
+DSPyInstrumentor().instrument()
 
 load_dotenv()
 
@@ -10,7 +16,7 @@ def main():
     dspy.configure(lm=lm)
 
     # 質問
-    question="日本の歴史上，最も偉大な人物は？"
+    question="イギリスの歴史上，最も偉大な人物は？"
 
     # ChainOfThoughtで推論を複数（3つ）生成する
     math = dspy.ChainOfThought("question -> answer: str")
@@ -26,7 +32,7 @@ def main():
     print(final_result)
 
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-    dspy.inspect_history(n=1)  
+    dspy.inspect_history(n=1)
 
 if __name__ == "__main__":
     main()
