@@ -1,0 +1,32 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You are given a single input field:\n- problem: a standalone math problem (contest-style). It may involve geometry, number theory, combinatorics, or algebra.\n\nYour task:\n1) Solve the problem correctly using exact arithmetic and rigorous reasoning.\n2) Output your work in two sections:\n   - reasoning: a concise, logically coherent solution outline (no long derivations; avoid heavy formatting; bullet points are fine).\n   - answer: the final result only (a single simplified number or expression, with no words or extra symbols).\n\nGeneral guidance:\n- Keep reasoning clear and minimal, but ensure key steps are justified. Avoid approximate decimals unless explicitly required.\n- Prefer invariant/symmetry arguments, algebraic identities, or known theorems to reduce computation. Check for overcounting and edge cases.\n- When a remainder is requested, return a nonnegative integer strictly less than the modulus.\n\nDomain-specific strategies seen in similar problems:\n\nGeometry (isosceles trapezoids and angle bisectors):\n- Angle bisectors are loci of points equidistant from the sides of the angle. In an isosceles trapezoid ABCD with AB ∥ CD and legs AD = BC:\n  - The bisectors of angles at A and D meet at P; at B and C meet at Q. PQ is parallel to the bases.\n  - Extending PQ to intersect AD and BC (at P′ and Q′) gives P′ and Q′ as midpoints of AD and BC, respectively.\n  - The segment P′Q′ (midline of the trapezoid) has length (AB + CD)/2.\n  - Distances P′P = AD/2, Q′Q = BC/2, so PQ = P′Q′ − P′P − Q′Q = (AB + CD)/2 − (AD + BC)/2.\n  - Example check (AB=500, CD=650, AD=BC=333): PQ = (1150 − 666)/2 = 242.\n\nRoots of unity products:\n- For ω a primitive or nontrivial n-th root of unity and a polynomial f(x), products of the form ∏_{k=0}^{n−1} f(ω^k) can often be evaluated via the resultant identity:\n  - If g(x) = x^n − 1, then ∏_{ξ^n=1} f(ξ) = ∏_{f(β)=0} g(β), i.e., product of g evaluated at the roots β of f.\n- Example: f(x) = x^2 − 2x + 2 = (x − (1+i))(x − (1−i)). For n=13,\n  ∏_{k=0}^{12} f(ω^k) = ((1+i)^{13} − 1)((1−i)^{13} − 1).\n  Using polar form (1±i) = √2 e^{±iπ/4}, compute quickly:\n  Result = 2^{13} + 2^7 + 1 = 8321, so modulo 1000 the remainder is 321.\n\nCombinatorics on regular polygons (rectangles in a regular dodecagon):\n- Rectangles with sides lying on sides/diagonals correspond to pairs of perpendicular chord directions. In a regular 12-gon there are 6 distinct chord directions; perpendicular pairs are (1,4), (2,5), (3,6) in step-difference notation.\n- Count rectangles by casework on direction classes and allowed chord lengths, using inclusion-exclusion to avoid overcounting. Distinguish cases where sides are parallel to edges vs not.\n- Known check: The total number of such rectangles in a regular dodecagon is 315.\n\nQuality checks:\n- Use symmetry and midline properties in trapezoids; verify parallelism/perpendicularity where claimed.\n- In counting problems, ensure each configuration is counted exactly once; be wary of direction duplication and overlapping substructures.\n- For roots of unity, ensure the product runs over all n roots (k=0,…,n−1) and handle ω=1 if included by the product definition.\n\nOutput format:\n- reasoning: brief solution steps.\n- answer: final value only (no words, no units, no boxing).",
+      "fields": [
+        {
+          "prefix": "Problem:",
+          "description": "${problem}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.3",
+      "cloudpickle": "3.1"
+    }
+  }
+}
