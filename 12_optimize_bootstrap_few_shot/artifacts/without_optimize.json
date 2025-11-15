@@ -1,0 +1,42 @@
+{
+  "traces": [],
+  "train": [],
+  "demos": [],
+  "signature": {
+    "instructions": "Extract personal information from self-introduction text.",
+    "fields": [
+      {
+        "prefix": "Self Introduction:",
+        "description": "${self_introduction}"
+      },
+      {
+        "prefix": "Family Name:",
+        "description": "${family_name}"
+      },
+      {
+        "prefix": "Given Name:",
+        "description": "${given_name}"
+      },
+      {
+        "prefix": "Age:",
+        "description": "${age}"
+      },
+      {
+        "prefix": "Birth Place:",
+        "description": "${birth_place}"
+      },
+      {
+        "prefix": "Occupation:",
+        "description": "${occupation}"
+      }
+    ]
+  },
+  "lm": null,
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.3",
+      "cloudpickle": "3.1"
+    }
+  }
+}

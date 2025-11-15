@@ -1,0 +1,57 @@
+{
+  "generate_answer.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "question": "Are Smyrnium and Nymania both types of plant?",
+        "reasoning": "Yes, both Smyrnium and Nymania are types of plants. Smyrnium is a genus in the family Apiaceae, which includes flowering plants, while Nymania refers to a genus of flowering plants in the family Asparagaceae.",
+        "answer": "Yes"
+      },
+      {
+        "augmented": true,
+        "question": "That Darn Cat! and Never a Dull Moment were both produced by what studio?",
+        "reasoning": "Both \"That Darn Cat!\" and \"Never a Dull Moment\" were produced by Walt Disney Productions, which is known for its family-friendly films and animated features.",
+        "answer": "Walt Disney Productions"
+      },
+      {
+        "augmented": true,
+        "question": "What was the name of the man who Carol Kane played the wife of who was a lovable-but-goofy mechanic in a television series?",
+        "reasoning": "Carol Kane played the character of Simka Dahblitz-Gravas, who was the wife of Latka Gravas, a lovable-but-goofy mechanic in the television series \"Taxi.\" The character of Latka was portrayed by Andy Kaufman.",
+        "answer": "Latka Gravas"
+      },
+      {
+        "augmented": true,
+        "question": "Are 7 World Trade Center and the Time Warner Center both located in New York City?",
+        "reasoning": "Yes, both 7 World Trade Center and the Time Warner Center are located in New York City. 7 World Trade Center is part of the World Trade Center complex in Lower Manhattan, while the Time Warner Center is located at Columbus Circle in Manhattan.",
+        "answer": "Yes"
+      }
+    ],
+    "signature": {
+      "instructions": "Given the fields `question`, produce the fields `answer`.",
+      "fields": [
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.3",
+      "cloudpickle": "3.1"
+    }
+  }
+}

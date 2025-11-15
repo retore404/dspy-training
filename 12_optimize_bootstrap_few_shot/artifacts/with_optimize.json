@@ -1,0 +1,78 @@
+{
+  "traces": [],
+  "train": [],
+  "demos": [
+    {
+      "augmented": true,
+      "self_introduction": "どうも、中村亮介と申します。26歳で、広告代理店の企画職をしています。京都府出身です。旅行が好きで時間があれば海外に行っています。",
+      "family_name": "中村",
+      "given_name": "亮介",
+      "age": 26,
+      "birth_place": "京都府",
+      "occupation": "広告代理店の企画職"
+    },
+    {
+      "augmented": true,
+      "self_introduction": "こんにちは、大森悠人と申します。41歳で、大学の研究員をしています。愛知県豊田市出身です。専門は材料科学です。",
+      "family_name": "大森",
+      "given_name": "悠人",
+      "age": 41,
+      "birth_place": "愛知県豊田市",
+      "occupation": "大学の研究員"
+    },
+    {
+      "augmented": true,
+      "self_introduction": "こんにちは、石原奈々です。22歳で、アパレル販売員として働いています。服を見ることも作ることも好きです。",
+      "family_name": "石原",
+      "given_name": "奈々",
+      "age": 22,
+      "birth_place": null,
+      "occupation": "アパレル販売員"
+    },
+    {
+      "self_introduction": "はじめまして。木村彩です。27歳の小学校教師です。長野県松本市出身で、自然の多い場所が落ち着きます。",
+      "family_name": "木村",
+      "given_name": "彩",
+      "age": 27,
+      "birth_place": "長野県松本市",
+      "occupation": "小学校教師"
+    }
+  ],
+  "signature": {
+    "instructions": "Extract personal information from self-introduction text.",
+    "fields": [
+      {
+        "prefix": "Self Introduction:",
+        "description": "${self_introduction}"
+      },
+      {
+        "prefix": "Family Name:",
+        "description": "${family_name}"
+      },
+      {
+        "prefix": "Given Name:",
+        "description": "${given_name}"
+      },
+      {
+        "prefix": "Age:",
+        "description": "${age}"
+      },
+      {
+        "prefix": "Birth Place:",
+        "description": "${birth_place}"
+      },
+      {
+        "prefix": "Occupation:",
+        "description": "${occupation}"
+      }
+    ]
+  },
+  "lm": null,
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.0.3",
+      "cloudpickle": "3.1"
+    }
+  }
+}
